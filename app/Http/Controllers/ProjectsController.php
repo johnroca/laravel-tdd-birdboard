@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Project;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreProjectRequest;
 
 class ProjectsController extends Controller
 {
@@ -14,7 +15,7 @@ class ProjectsController extends Controller
         return view('projects.index', compact('projects'));
     }
 
-    public function store(Request $request)
+    public function store(StoreProjectRequest $request)
     {
         Project::create(request(['title', 'description']));
 
